@@ -1,9 +1,12 @@
 'use client';
 import React from 'react';
+import { useCheckoutContext } from './CheckoutProvider';
 
-function CartTable({ items, handleDeleteItem }) {
+function CartTable() {
+  const { items, handleDeleteItem } = useCheckoutContext();
+
   return (
-    <table className="shopping-cart">
+    <table className='shopping-cart'>
       <thead>
         <tr>
           <th>Title</th>
@@ -14,16 +17,12 @@ function CartTable({ items, handleDeleteItem }) {
       </thead>
       <tbody>
         {items.map((item) => (
-          <tr key={item.id} className="cart-row">
+          <tr key={item.id} className='cart-row'>
             <td>{item.title}</td>
             <td>${item.price}</td>
             <td>{item.quantity}</td>
             <td>
-              <button
-                onClick={() => handleDeleteItem(item)}
-              >
-                Remove
-              </button>
+              <button onClick={() => handleDeleteItem(item)}>Remove</button>
             </td>
           </tr>
         ))}
