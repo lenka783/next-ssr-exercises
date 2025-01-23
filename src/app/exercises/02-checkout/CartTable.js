@@ -1,10 +1,7 @@
 'use client';
 import React from 'react';
-import { useCheckoutContext } from './CheckoutProvider';
 
-function CartTable() {
-  const { items, handleDeleteItem } = useCheckoutContext();
-
+function CartTable({ items, handleDeleteItem }) {
   return (
     <table className='shopping-cart'>
       <thead>

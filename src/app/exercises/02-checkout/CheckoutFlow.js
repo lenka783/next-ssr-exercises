@@ -4,12 +4,9 @@ import React from 'react';
 import Spinner from '../../../components/Spinner';
 
 import CartTable from './CartTable';
-import { useCheckoutContext } from './CheckoutProvider';
 
-function CheckoutFlow() {
-  const { items, isLoading, taxRate, handleDeleteItem } = useCheckoutContext();
-
-  if (isLoading) {
+function CheckoutFlow({ items, taxRate, handleDeleteItem }) {
+  if (items === null) {
     return (
       <div className='checkout-flow empty'>
         <Spinner />

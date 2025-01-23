@@ -1,9 +1,7 @@
 'use client';
 import React from 'react';
-import { useCheckoutContext } from './CheckoutProvider';
 
-function StoreItem({ item }) {
-  const { handleAddToCart } = useCheckoutContext();
+function StoreItem({ item, handleAddToCart }) {
   const price = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
